@@ -1,0 +1,35 @@
+<apex:page standardController="Lead" id="pg" extensions="PlayAudio" sidebar="false">
+<apex:includeScript value="{!URLFOR($Resource.AudioPlayer, 'audio-player/audio-player.js')}"/>
+<script type="text/javascript">  
+	 AudioPlayer.setup("{!URLFOR($Resource.AudioPlayer, 'audio-player/player.swf')}", {  
+		 width: 290  
+	 });  
+</script> 
+
+<script type="text/javascript">  
+	function playAudio(trackObj)
+		{
+			AudioPlayer.embed("audioplayer_1", {soundFile: trackObj});
+		}  
+</script>
+<apex:form id="frm">
+	<apex:pageBlock id="pb">
+		<apex:variable value="{!0}" var="count" />
+		<apex:pageBlockTable value="{!listAttachment}" var="item" id="pbt">
+			<apex:column headerValue="Name">
+				{!item.Name}
+			</apex:column>
+			<apex:column headerValue="ContentType">
+				{!item.ContentType}
+			</apex:column>
+			<apex:column id="colPlayer" rendered="{!CONTAINS(item.ContentType, 'audio')}">
+				<p id="{!count}.audioplayer"></p>
+				<script type="text/javascript">
+					AudioPlayer.embed("{!count}.audioplayer", {soundFile: 'https://c.na9.content.force.com/servlet/servlet.FileDownload?file={!item.Id}'});
+				</script>
+				<apex:variable value="{!count+1}" var="count" />
+			</apex:column>
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+</apex:form>
+</apex:page>

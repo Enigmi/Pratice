@@ -1,0 +1,24 @@
+<template>
+  <lightning-card>
+    <span class="slds-text-title_bold" style="font-size:16px">
+      <lightning-icon
+        icon-name="standard:announcement"
+        size="small"
+        style=" margin-left:10px; margin-right:9px;margin-bottom:7px"
+      ></lightning-icon>
+      {strTitle} ({count})
+    </span>
+    <template for:each={temp} for:item="mapKey">
+      <div key={mapKey.key}>
+        <p style="  padding-left:5px;color:Blue;font-size:13px;">
+          {mapKey.key}
+        </p>
+        <audio
+          src={mapKey.value}
+          controls="controls"
+          style="padding: 5px;"
+        ></audio>
+      </div>
+    </template>
+  </lightning-card>
+</template>

@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	Hello World 
+    <p> Hello World</p>
+    <br/>
+    <lightning:formattedText value="Hello World WE Are Coming" />
+    <lightning:button variant="base" label="LigthingButton" />
+</aura:component>

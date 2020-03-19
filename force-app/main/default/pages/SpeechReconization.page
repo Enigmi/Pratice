@@ -1,0 +1,44 @@
+<apex:page >
+
+    <title>Speech Recording</title>
+    <h3>Transcript: </h3>
+    <div id="transcript">
+
+    </div>
+    <button type="button" onclick="startreconignition()">Give The Sppech Command</button>
+
+    <script>
+        function startreconignition() {
+            window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+            let finalTranscript = '';
+            let recognition = new window.SpeechRecognition();
+            recognition.interimResults = true;
+            recognition.maxAlternatives = 10;
+            recognition.continuous = true;
+            recognition.onresult = (event) => {
+                let interimTranscript = '';
+                for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+                    let transcript = event.results[i][0].transcript;
+                    console.log('@@@ transcript@@@@', event.results[i][0].transcript);
+
+                    if (event.results[i].isFinal) {
+                        console.log('@@@ finalevent');
+                        finalTranscript += transcript;
+                        finalTranscript = '';
+                        interimTranscript = '';
+                        recognition.stop();
+                        document.querySelector('#transcript').innerHTML = finalTranscript + '<i style="color:#ddd;">' + interimTranscript + '</>';
+                        console.log('@@@ finalTranscript', finalTranscript);
+                    } else {
+                        console.log('@@@ interimevent');
+                        interimTranscript += transcript;
+                    }
+                }
+                document.querySelector('#transcript').innerHTML = finalTranscript + '<i style="color:#ddd;">' + interimTranscript + '</>';
+            }
+            recognition.start();
+        }
+
+    </script>
+
+</apex:page>

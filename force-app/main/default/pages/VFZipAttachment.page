@@ -1,0 +1,8 @@
+<apex:page showHeader="false" sidebar="false" >  
+    <br/>
+    <apex:pageBlock title="Create zip of Attachment files">
+        <center>
+            <c:VFZipComponent attachmentIds="0690o00000AIjNrAAL,0690o00000AIjNmAAL" generatedFileName="MyZip" mode="button"/>
+        </center>
+    </apex:pageBlock>
+ </apex:page>

@@ -1,0 +1,52 @@
+<template>
+
+    <lightning-card title="Contact ListView" icon-name="custom:custom67">
+
+        <lightning-input type="String" name="tag_name_0" label="Label 1"
+            onchange={handleFormInputChange}
+            class="formInput"></lightning-input>
+    </lightning-card>
+
+        <template if:true={contact}>
+                <table  
+                class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">  
+                <thead>  
+                  <tr class="slds-text-heading_label">   
+                    <th scope="col">  
+                      <div class="slds-truncate" title="Name">Name</div>  
+                    </th> 
+                    <th scope="col">  
+                            <div class="slds-truncate" title="Name">Account Name</div>  
+                    </th> 
+                    <th scope="col">  
+                            <div class="slds-truncate" title="Name">Owner</div>  
+                    </th> 
+                  </tr>  
+                </thead>  
+                    <tbody>  
+            
+                    <template for:each={contact} for:item='item'>
+          
+                        <tr key={item.Id}>  
+                            <th scope="row">
+            
+                                <div class="slds-truncate" title={Id}>{item.Name}</div>  
+                            </th>  
+                            <td if:true={item.Account}>  
+                                <div class="slds-truncate" title={Name}>{item.Account.Name}</div>  
+                            </td> 
+                            <td if:false={item.Account}>
+                                <div class="slds-truncate" title={Name}>  </div>  
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={Name}>{item.Owner.Name}</div>   
+                            </td>
+                        </tr>  
+                        
+                    </template>
+                 </tbody>
+                </table>
+
+        </template> 
+
+</template>

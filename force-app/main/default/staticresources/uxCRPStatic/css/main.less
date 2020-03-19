@@ -1,0 +1,240 @@
+/**
+ * This is the less file for the main css
+ * To generate the css file use: 
+ * $> lessc --compress --source-map --source-map-basepath=<base path here> --source-map-rootpath=../ main.less main.css
+ */
+@import "../bower_components/bootstrap/less/bootstrap";
+@import "../bower_components/font-awesome/less/font-awesome";
+@import "../bower_components/bootstrap-multiselect/dist/less/bootstrap-multiselect";
+
+/* ==========================================================================
+ 
+   FONTS
+   - Proxima Nova Soft [Regular, Semibold, Medium, Bold]
+
+   ========================================================================== */
+@font-face {
+  font-family: 'ProximaNova';
+  src: url("fonts/proximanovasoft/proximanovasoft-regular-webfont.ttf") format('truetype');
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url("fonts/proximanovasoft/proximanovasoft-medium-webfont.ttf") format('truetype');
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url("fonts/proximanovasoft/proximanovasoft-semibold-webfont.ttf") format('truetype');
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url("fonts/proximanovasoft/proximanovasoft-bold-webfont.ttf") format('truetype');
+  font-weight: 900;
+  font-style: normal; }
+
+
+/**
+ * Bootstrap customizations. Check variables.less for more options
+ */
+@font-family-sans-serif:  "ProximaNova", sans-serif;
+@body-bg: #344a5f;
+@border-radius-base:        0px;
+@border-radius-large:       0px;
+@border-radius-small:       0px;
+@headings-font-weight:      300;
+
+@main-color: #0093e2;
+@hr-border: @main-color;
+@nav-tabs-border-color: black;
+@nav-tabs-justified-active-link-border-color: @main-color;
+@nav-tabs-link-hover-border-color: transparent;
+@nav-tabs-justified-link-border-color: black;
+@nav-tabs-active-link-hover-bg: transparent;
+@nav-tabs-active-link-hover-color: @link-color;
+@modal-backdrop-opacity: .75;
+
+@fa-font-path:        "../bower_components/font-awesome/fonts";
+
+.box-shadows-2(@shadow1, @shadow2) {
+  -webkit-box-shadow: @shadow1, @shadow2; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow1, @shadow2;
+}
+
+body {
+  font-weight: 300;
+}
+
+.header {
+  background: #efefef;
+  min-height: 110px;
+  padding: 20px 0px;
+
+  h2, h4 {
+    color: @main-color;    
+  }
+
+  .header-logo {
+    max-height: 100px;
+  }
+}
+
+.subHeader {
+  background-color: @main-color;
+  padding: 10px 0 10px 0;
+
+  h3 {
+    margin: 0px;
+  }
+
+  .sq-sticker {
+    height: 84px;
+  }
+}
+
+.text-white {
+  color: #fff;
+}
+
+
+.display-table {
+  display: table;
+}
+
+.display-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.page-header-primary {
+  &:extend(.page-header);
+  margin: 0;
+  background-color: @main-color;
+  color: #fff;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.padded {
+  padding: 20px;
+}
+
+.white-bg {
+  background-color: #fff;
+}
+
+hr {
+  &.thick {
+    border-width: 2px;
+  }
+
+  &.spacer {
+    border-color: transparent;
+  }
+}
+
+.form-horizontal .control-label-left {
+  text-align: left;
+  font-weight: normal;
+}
+
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus {
+  border-width: 0 0 1px 0;
+  background-color: transparent;
+}
+
+.nav>li>a {
+  color: @gray;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+  background-color: transparent;
+}
+
+.tab-content>.tab-pane {
+  padding: 20px;
+}
+
+.nav>li>a .badge {
+    padding: 4px 7px;
+    border: solid 1px #ccc;
+    background-color: #ddd;
+    margin-right: 8px;
+}
+
+.nav>li.active>a .badge {
+  background-color: @main-color;
+  border-color: @main-color;
+}
+
+.badge-primary {
+  background-color: @main-color;
+}
+
+.switch {
+  font-weight: normal;
+  vertical-align: top;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+
+  i {
+    display: inline-block;
+    padding-right: 20px;
+    .transition(all ease 0.2s);
+    border-radius: 20px;
+    .box-shadow(inset 0 0 1px rgba(0,0,0,.5));
+
+    &:before {
+      display: block;
+      content: '';
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      background: white;
+      .box-shadow(0 1px 2px rgba(0,0,0,.5));
+    }
+  }
+
+  :checked + i {
+    padding-right: 0;
+    padding-left: 20px;
+    .box-shadows-2(inset 0 0 1px rgba(0,0,0,.5), inset 0 0 40px @main-color);
+  }
+}
+
+.phone:before {
+  content: @fa-var-mobile;
+}
+
+.tablet:before {
+  content: @fa-var-tablet;
+}
+
+.phone, .tablet {
+  .fa-icon();
+
+  &.Android:before, &.Droid:before {
+    content: @fa-var-android;
+    color: #A4C639;
+  }
+
+  &.iPhone:before, &.iPad:before {
+    content: @fa-var-apple;
+    color: #a5adb0;
+  }
+
+  &.Windows:before {
+    content: @fa-var-windows;
+    color: #2672EC;
+  }
+}
+

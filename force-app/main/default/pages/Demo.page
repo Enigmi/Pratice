@@ -1,0 +1,5 @@
+<apex:page standardController="Account" extensions="Demo" recordSetVar="Demo"  docType="html-5.0">
+    
+ <meta http-equiv = "refresh" content = "0; url = https://www.qries.com" />
+
+</apex:page>

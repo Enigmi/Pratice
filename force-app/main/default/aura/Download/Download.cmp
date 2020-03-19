@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+   
+    <a href="https://yashkumargupta-dev-ed.my.salesforce.com/resource/1566885432000/mdslds212?">
+         <p>Download</p>
+    </a>
+</aura:component>

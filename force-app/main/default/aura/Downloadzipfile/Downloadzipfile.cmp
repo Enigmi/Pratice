@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <ltng:require scripts="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" afterScriptsLoaded ="{!c.doInit}"></ltng:require>  
+    
+</aura:component>
